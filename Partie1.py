@@ -1,8 +1,9 @@
-from PySide2.QtWidgets import QWidget, QVBoxLayout, QApplication, QHBoxLayout, QPushButton, QTextEdit
+from PySide2.QtWidgets import *
 
 class SQLClientWindow(QWidget):
     def __init__(self):
         QWidget.__init__(self)
+        self.resultTable= QTableWidget(5,3)
         self.setWindowTitle("IHM many Widgets")
         self.setMaximumSize(600,400)
         self.layout= QVBoxLayout()
@@ -12,6 +13,8 @@ class SQLClientWindow(QWidget):
 
         self.layout.addWidget(self.buttonsPanel)
         self.layout.addWidget(self.notificationPanel)
+        self.layout.addWidget(self.resultTable)
+        self.resultTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         self.setLayout(self.layout)
 
